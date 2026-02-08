@@ -1,0 +1,80 @@
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  user-select: none;
+}
+
+.pagination-left, .pagination-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pagination-center {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+}
+
+.page-size-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  border: none;
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-size-btn:hover {
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+}
+
+.page-size-btn.active {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.pagination-nav-btn, .pagination-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  border: none;
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-nav-btn:hover:not(:disabled), .pagination-btn:hover:not(:disabled) {
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+}
+
+.pagination-nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-btn.active {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.pagination-btn.dots {
+  cursor: default;
+}
+
+.pagination-btn.dots:hover {
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+}
