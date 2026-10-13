@@ -1,7 +1,8 @@
 import React from 'react';
-import { X, Building2, Mail, Phone, Save, Plus, Link as LinkIcon, Briefcase } from 'lucide-react';
+import { X, Building2, Mail, Phone, Save, Plus, Link as LinkIcon, Briefcase, Globe } from 'lucide-react';
 import { CreateCompanyDto, UpdateCompanyDto, Company } from '../../types/Company';
 import { useCompanyModal } from '../../hooks/useCompanyModal';
+import { CountrySelect } from '../Email/CountrySelect';
 import './Modal.css';
 
 interface CompanyModalProps {
@@ -19,8 +20,12 @@ export const CompanyModal: React.FC<CompanyModalProps> = (props) => {
     formData,
     positions,
     selectedPositionIds,
+    countries,
+    selectedCountry,
+    countryError,
     handleTogglePosition,
     handleChange,
+    handleCountryChange,
     handleSubmit,
   } = useCompanyModal(props);
 
@@ -100,6 +105,23 @@ export const CompanyModal: React.FC<CompanyModalProps> = (props) => {
               value={formData.companyUrl}
               onChange={(e) => handleChange('companyUrl', e.target.value)}
             />
+          </div>
+
+          <div className="form-group">
+            <label className="form-label">
+              <Globe size={16} className="text-muted-foreground" />
+              Țara
+            </label>
+            <CountrySelect
+              countries={countries}
+              selectedCountry={selectedCountry}
+              onChange={handleCountryChange}
+            />
+            {countryError && (
+              <div role="alert" style={{ color: 'hsl(var(--destructive))', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                Selectează țara companiei.
+              </div>
+            )}
           </div>
 
           <div className="form-group">

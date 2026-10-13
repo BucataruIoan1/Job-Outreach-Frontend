@@ -7,6 +7,7 @@ export interface Company {
   companyEmail?: string;
   companyUrl?: string;
   isContacted?: boolean;
+  countryId?: number | null;
   positions?: Position[];
 }
 
@@ -15,6 +16,7 @@ export interface CreateCompanyDto {
   companyPhone?: string;
   companyEmail?: string;
   companyUrl?: string;
+  countryId: number;
 }
 
 export interface UpdateCompanyDto {
@@ -22,6 +24,7 @@ export interface UpdateCompanyDto {
   companyPhone?: string;
   companyEmail?: string;
   companyUrl?: string;
+  countryId?: number;
   isContacted?: boolean;
    positionIds?: number[];
 }
